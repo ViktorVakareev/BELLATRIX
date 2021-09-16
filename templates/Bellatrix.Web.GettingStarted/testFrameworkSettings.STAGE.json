@@ -12,7 +12,6 @@
     "shouldHighlightElements": "true",
     "shouldCaptureHttpTraffic": "false",
     "pathToSslCertificate": "path",
-    "shouldCheckForJavaScriptErrors": "false",
     "timeoutSettings": {
       "elementWaitTimeout": "30",
       "pageLoadTimeout": "30",
@@ -37,7 +36,6 @@
       "defaultLifeCycle": "restart every time",
       "resolution": "",
       "browserVersion": "",
-      "isCloudRun": "false",
       "url": "http://127.0.0.1:4444/wd/hub",
       "arguments": [
         {
@@ -83,22 +81,6 @@
       //     // you case set them as environmental variables - cloud.grid.user and cloud.grid.key. Set them as value to the key to which they should be intialized.
       //    "username": "yourUserName",
       //    "password": "accessKey"
-      //  }
-      //]
-      // sample lambda test args
-      //"arguments": [
-      //  {
-      //    "name": "{runName}",
-      //    "platformName": "Windows",
-      //    "browserName": "Chrome",
-      //    "browserVersion": "93.0",
-      //    "video": "true",
-      //    "visual": "true",
-      //    "resolution": "1920x1080x24",
-      //    "geoLocation": "BE",
-      //     // you case set them as environmental variables - cloud.grid.user and cloud.grid.key. Set them as value to the key to which they should be intialized.
-      //    "user": "yourUserName",
-      //    "accessKey": "accessKey"
       //  }
       //]
       // sample browserstack args
@@ -203,8 +185,5 @@
   "appInsightsSettings": {
     "instrumentationKey": "yourKey",
     "isEnabled": "false"
-  },
-  "blobStorageSettings": {
-    "connectionString": "yourKey"
   }
 }
