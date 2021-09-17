@@ -41,12 +41,20 @@ namespace Bellatrix.Web
         }
 
         [Test]
-        public void LocateAllImages_InsideBestSellerSection()
-        {
-            var bestSellerSection = App.Components.CreateByInnerTextContaining<Anchor>("Best Sellers");
-            var addToCartAllButtons = App.Components.CreateAllByXpath<Button>("//h2[(contains(text(),'Best Sellers'))]").ToList();
+        public void LocateAllImages_InsideBestSellerSection_UsingXpath()
+        {           
+            var bestSellerSectionImages = App.Components.CreateAllByXpath<Anchor>("//h2[(contains(text(),'Best Sellers'))]/following::img").ToList();
+            
+            Assert.AreEqual(5, bestSellerSectionImages.Count);
+        }
 
-            Assert.AreEqual(13, addToCartAllButtons.Count);
+        [Test]
+        public void LocateAllImages_InsideBestSellerSection_UsingNestedLocators()
+        {
+           //// var bestSellerSection = App.Components.CreateByXpath<Anchor>("//h2[(contains(text(),'Best Sellers'))]");
+           //// var bestSellerSectionImages = bestSellerSection.CreateByClassContaining<Anchor>("woocommerce columns-4 ").CreateByXpath<Anchor>("(//img)[1]");//.ToArray();
+           //// bestSellerSectionImages.Click();
+           //// Assert.AreEqual(5, bestSellerSectionImages.Count);
         }
     }
 }

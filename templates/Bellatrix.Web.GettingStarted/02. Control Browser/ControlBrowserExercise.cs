@@ -19,9 +19,9 @@ namespace Bellatrix.Web.GettingStarted
 
             var sortByDropdownList = App.Components.CreateByXpath<Select>("(//select[@name='orderby'])[1]");
             sortByDropdownList.SelectByText("Sort by popularity");
-            var option = sortByDropdownList.GetSelected().InnerText;
+            var optionCurrent = sortByDropdownList.GetSelected().InnerText;
 
-            Assert.AreEqual(option, "Sort by popularity");  ////- How to get Select current value???
+            Assert.AreEqual(optionCurrent, "Sort by popularity");  ////- How to get Select current value???
         }
 
         [Test]
