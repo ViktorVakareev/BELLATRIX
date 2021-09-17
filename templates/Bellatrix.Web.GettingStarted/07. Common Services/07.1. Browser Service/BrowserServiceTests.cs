@@ -5,10 +5,10 @@ using NUnit.Framework;
 namespace Bellatrix.Web.GettingStarted
 {
     [TestFixture]
+    [Browser(BrowserType.Firefox,Lifecycle.RestartEveryTime)]
     public class BrowserServiceTests : NUnit.WebTest
     {
-        // 1. BELLATRIX gives you an interface to most common operations for controlling the started browser through the BrowserService class.
-        // We already saw one of them WaitUntilReady waiting for all Ajax calls to complete.
+       
         [Test]
         [Category(Categories.CI)]
         public void GetCurrentUri()
@@ -17,7 +17,7 @@ namespace Bellatrix.Web.GettingStarted
 
             // 2. Get the current tab URL.
             Debug.WriteLine(App.Browser.Url);
-        }
+        }             
 
         [Test]
         [Category(Categories.CI)]
