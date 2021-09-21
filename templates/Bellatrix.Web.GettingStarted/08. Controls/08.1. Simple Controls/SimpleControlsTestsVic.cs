@@ -52,7 +52,8 @@ namespace Bellatrix.Web.GettingStarted
             searchTextBox.SetText(rocketName1 + Keys.Enter);
             addToCartButton.Click();
             App.Browser.WaitUntilReady();
-            searchTextBox = App.Components.CreateByXpath<TextArea>("(//input[@type='search'])[1]").ToBeClickable().ToExists();
+            //searchTextBox = App.Components.CreateByXpath<TextArea>("(//input[@type='search'])[1]").ToBeClickable().ToExists();
+            searchTextBox.ToExists().WaitToBe();
             searchTextBox.SetText(rocketName2 + Keys.Enter);
             addToCartButtonRocketScreen.Click();
             viewCartLink.Click();
@@ -70,7 +71,7 @@ namespace Bellatrix.Web.GettingStarted
             
             undoDeleteFromCartButton.Click();           
             totalPriceField = App.Components.CreateByXpath<TextField>("//th[text()='Total']/following::bdi").ToExists().ToBeVisible();
-            App.Browser.WaitForAjax();
+            App.Browser.WaitForAjax();            
 
             Assert.AreEqual(valueField1 + valueField2, getTotalPriceValue(totalPriceField));                     
 

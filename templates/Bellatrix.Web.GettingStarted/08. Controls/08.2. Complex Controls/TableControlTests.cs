@@ -81,7 +81,7 @@ namespace Bellatrix.Web.GettingStarted
             Table.AssertTable(_expectedUsers);
 
             // You can get all header names. Doubled headers are returned as one entry and separated by space.
-            Assert.AreEqual("Action", Table.GetHeaderNames().Last());
+            Assert.AreEqual("Action", Table.GetHeaderNames().Last()); ;
         }
 
         [Test]
