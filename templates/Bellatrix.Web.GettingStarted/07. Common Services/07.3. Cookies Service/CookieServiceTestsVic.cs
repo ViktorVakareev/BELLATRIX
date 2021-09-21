@@ -45,13 +45,14 @@ namespace Bellatrix.Web.GettingStarted
             protonRocketAddToCartButton.Click();
 
             var allCookies = App.Cookies.GetAllCookies();
+            var currentRocketAddedCookie = App.Cookies.GetCookie("woocommerce_items_in_cart");            
 
-            Assert.IsTrue(allCookies.Count > 0);
+            Assert.IsTrue(allCookies.Count > 0);           
 
             App.Cookies.DeleteAllCookies();
             App.Browser.Refresh();            
 
-            Assert.AreEqual("0 items", itemsInCartCount.InnerText);
+            Assert.AreEqual("0 items", itemsInCartCount.InnerText);            
         }
 
         [Test]

@@ -14,7 +14,7 @@ namespace Bellatrix.Web
     ////6. Create a test where you find all Add to cart buttons
     ////7. Create a test where you locate all images inside the Best Sellers section. Use chain locators.
     [TestFixture]
-    [Browser(BrowserType.Firefox, Lifecycle.RestartEveryTime)]
+    [Browser(BrowserType.Chrome, Lifecycle.RestartEveryTime)]
     public class LocateElementsTestsVic : NUnit.WebTest
     {
         public override void TestInit() => App.Navigation.Navigate("https://demos.bellatrix.solutions/welcome/");
@@ -43,19 +43,19 @@ namespace Bellatrix.Web
         [Test]
         public void LocateAllImages_InsideBestSellerSection_UsingXpath()
         {
-            var bestSellerSectionImages = App.Components.CreateAllByXpath<Anchor>("//h2[(contains(text(),'Best Sellers'))]/following::img").ToList();
+            var bestSellerSectionImages = App.Components.CreateAllByXpath<Anchor>("//h2[(contains(text(),'Best Sellers'))]/following::div//img").ToList();
 
-            Assert.AreEqual(5, bestSellerSectionImages.Count);
+            Assert.AreEqual(4, bestSellerSectionImages.Count);
         }
 
         [Test]
-        public void LocateAllImages_InsideBestSellerSection_UsingNestedLocators()
+        public void LocateAllImages_InsideBestSellerSection_UsingChainedLocators()
         {
-            ////var bestSellerSection = App.Components.CreateByXpath<Option>("//h2[(contains(text(),'Best Sellers'))]");
-            //var bestSellerSection = App.Components.CreateByXpath<Option>("//h2[(contains(text(),'Best Sellers'))]");
-            //var bestSellerSectionImages = bestSellerSection.CreateByClassContaining<Anchor>("woocommerce columns-4 ").CreateAllByXpath<Anchor>("(//img)");//.ToArray();
-            //bestSellerSectionImages.Click();
-            //Assert.AreEqual(4, bestSellerSectionImages.Count);
+            
+            var bestSellerSection = App.Components.CreateByXpath<Option>("//h2[text()='Best Sellers']/following-sibling::div");
+            var bestSellerSectionImages = bestSellerSection.CreateAllByXpath<Anchor>(".//img").ToList();
+            
+            Assert.AreEqual(4, bestSellerSectionImages.Count);
         }
     }
 }

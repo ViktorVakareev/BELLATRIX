@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 namespace Bellatrix.Web.GettingStarted
 {
     [TestFixture]
+    [Browser(BrowserType.Chrome, Lifecycle.RestartEveryTime)]
     public class InteractionsServiceTests : NUnit.WebTest
     {
         // 1. BELLATRIX gives you an interface for easier execution of complex UI interactions such as drag & drop, move to element, double click, etc.
@@ -11,7 +12,7 @@ namespace Bellatrix.Web.GettingStarted
         // Their usage can eliminate lots of code duplication and boilerplate code.
         [Test]
         [Category(Categories.CI)]
-        [Ignore("Currently not working in the latest version of WebDriver")]
+        //[Ignore("Currently not working in the latest version of WebDriver")]
         public void DragAndDrop()
         {
             App.Navigation.Navigate("http://demos.bellatrix.solutions/");
