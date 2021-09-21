@@ -33,8 +33,7 @@ namespace Bellatrix.Web.GettingStarted
         {
             string rocketName1 = "Saturn V";
             string rocketName2 = "Proton Rocket";
-            var searchTextBox = App.Components.CreateByXpath<TextArea>("(//input[@type='search'])[1]").ToBeClickable().ToExists();
-            var searchTextBox1 = App.Components.CreateByXpath<TextField>("(//input[@type='search'])[1]");
+            var searchTextBox = App.Components.CreateByXpath<TextArea>("(//input[@type='search'])[1]").ToBeClickable().ToExists();            
             var searchButton = App.Components.CreateByXpath<Button>("(//button[text()='Search'])[1]");
             var addToCartButton = App.Components.CreateByInnerTextContaining<Button>("Add to cart");
             var addToCartButtonRocketScreen = App.Components.CreateByXpath<Button>("//button[text()='Add to cart']");
@@ -42,20 +41,19 @@ namespace Bellatrix.Web.GettingStarted
             var rocketAnchor2 = currentRocketAnchor(rocketName2);
             var viewCartLink = App.Components.CreateByXpath<Button>("(//a[@class='button wc-forward'])[2]").ToBeVisible().ToExists();
             var lastAddedToCartProduct = App.Components.CreateByXpath<TextField>("(//td[@class='product-name'])[1]");
-            var totalPriceField = App.Components.CreateByXpath<TextField>("//th[text()='Total']/following::bdi").ToExists().ToBeVisible();
-            var totalPriceField1 = App.Components.CreateByXpath<TextField>("//th[text()='Total']/following::bdi").ToExists().ToBeVisible();
-            var totalPriceField2 = App.Components.CreateByXpath<TextField>("//th[text()='Total']/following::bdi").ToExists().ToBeVisible();
-            var totalPriceFieldLast = App.Components.CreateByXpath<TextField>("//th[text()='Total']/following::bdi").ToExists().ToBeVisible();
+            var totalPriceField = App.Components.CreateByXpath<TextField>("//th[text()='Total']/following::bdi").ToExists().ToBeVisible();            
             var deleteFirstItemButton = App.Components.CreateByXpath<Button>("(//a[@class='remove'])[1]");
             var undoDeleteFromCartButton = App.Components.CreateByInnerTextContaining<Button>("Undo?").ToExists().ToBeClickable();
             var couponCodeTextField = App.Components.CreateByNameEndingWith<TextField>("coupon_code").ToBeVisible();
-            var couponCodeApplyButton = App.Components.CreateByNameEndingWith<Button>("apply_coupon").ToBeVisible();            
+            var couponCodeApplyButton = App.Components.CreateByNameEndingWith<Button>("apply_coupon").ToBeVisible();
+            var updateCart = App.Components.CreateByValueContaining<Button>("Update cart").ToBeClickable();            
 
             searchTextBox.ToBeClickable();
             searchTextBox.SetText(rocketName1 + Keys.Enter);
             addToCartButton.Click();
             App.Browser.WaitUntilReady();
-            searchTextBox1.SetText(rocketName2 + Keys.Enter);
+            searchTextBox = App.Components.CreateByXpath<TextArea>("(//input[@type='search'])[1]").ToBeClickable().ToExists();
+            searchTextBox.SetText(rocketName2 + Keys.Enter);
             addToCartButtonRocketScreen.Click();
             viewCartLink.Click();
 
@@ -64,22 +62,30 @@ namespace Bellatrix.Web.GettingStarted
 
             Assert.AreEqual(valueField1 + valueField2, getTotalPriceValue(totalPriceField));
 
-            deleteFirstItemButton.Click(); 
+            deleteFirstItemButton.Click();
             App.Browser.WaitForAjax();
+            totalPriceField = App.Components.CreateByXpath<TextField>("//th[text()='Total']/following::bdi").ToExists().ToBeVisible();
 
-            Assert.AreEqual((valueField1 + valueField2) - valueField1, getTotalPriceValue(totalPriceField1));
+            Assert.AreEqual((valueField1 + valueField2) - valueField1, getTotalPriceValue(totalPriceField));
             
-            undoDeleteFromCartButton.Click();  
+            undoDeleteFromCartButton.Click();           
+            totalPriceField = App.Components.CreateByXpath<TextField>("//th[text()='Total']/following::bdi").ToExists().ToBeVisible();
             App.Browser.WaitForAjax();
 
-            Assert.AreEqual(valueField1 + valueField2, getTotalPriceValue(totalPriceField2));
+            Assert.AreEqual(valueField1 + valueField2, getTotalPriceValue(totalPriceField));                     
 
             couponCodeTextField.SetText("99%");
             couponCodeApplyButton.Click();
+            var messageAlert = App.Components.CreateByClassContaining<Div>("woocommerce-message");
+
+            messageAlert.ToHasContent().ToBeVisible().WaitToBe();
+            messageAlert.ValidateInnerTextIs("Coupon code applied successfully.");
             var sumAfterCoupon = (valueField1 + valueField2) * 0.01;  // coupon = "99 %"
+            
+            totalPriceField = App.Components.CreateByXpath<TextField>("//th[text()='Total']/following::bdi").ToExists().ToBeVisible();
             App.Browser.WaitForAjax();
 
-            Assert.AreEqual(sumAfterCoupon, getTotalPriceValue(totalPriceFieldLast), 1);
+            Assert.AreEqual(sumAfterCoupon, getTotalPriceValue(totalPriceField), 1);
         }
 
         private double getPriceValue(string rocketName)
