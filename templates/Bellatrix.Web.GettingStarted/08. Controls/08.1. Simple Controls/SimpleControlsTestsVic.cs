@@ -52,7 +52,7 @@ namespace Bellatrix.Web.GettingStarted
             searchTextBox.SetText(rocketName1 + Keys.Enter);
             addToCartButton.Click();
             App.Browser.WaitUntilReady();
-            //searchTextBox = App.Components.CreateByXpath<TextArea>("(//input[@type='search'])[1]").ToBeClickable().ToExists();
+            searchTextBox = App.Components.CreateByXpath<TextArea>("(//input[@type='search'])[1]").ToBeClickable().ToExists();
             searchTextBox.ToExists().WaitToBe();
             searchTextBox.SetText(rocketName2 + Keys.Enter);
             addToCartButtonRocketScreen.Click();
