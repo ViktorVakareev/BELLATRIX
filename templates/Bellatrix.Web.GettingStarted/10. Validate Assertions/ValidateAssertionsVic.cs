@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 /// <summary>
@@ -16,13 +15,13 @@ using System.Threading.Tasks;
 ////6. Navigate to checkout, do not fill the date and click proceed
 ////7. Verify all validation messages
 ////8. Verify Your Order Data
-////Note: Use regular Assert methods
+////Note: Use Validatet methods
 /// </summary>
 namespace Bellatrix.Web.GettingStarted
 {
     [TestFixture]
     [Browser(BrowserType.Chrome, Lifecycle.RestartEveryTime)]
-    public class NormalAssertionsVic : NUnit.WebTest
+    public class ValidateAssertionsVic : NUnit.WebTest
     {
         public override void TestInit() => App.Navigation.Navigate("https://demos.bellatrix.solutions");
 
@@ -36,30 +35,32 @@ namespace Bellatrix.Web.GettingStarted
             var proceedToCheckoutButton = App.Components.CreateByInnerTextContaining<Button>("Proceed to checkout");
             var placeOrderButton = App.Components.CreateByInnerTextContaining<Button>("Place order").ToBeClickable().ToBeClickable();
             var validationMessages = App.Components.CreateByClass<Div>("woocommerce-error");
-            var totalPrice = App.Components.CreateByXpath<Span>("//*[@class='order-total']//span");            
+            var totalPrice = App.Components.CreateByXpath<Span>("//*[@class='order-total']//span");
 
             searchTextBox.SetText(rocketName1 + Keys.Enter);
-            addToCartButton.Click();           
+            addToCartButton.Click();
             viewCartLink.Click();
             App.Browser.WaitUntilReady();
 
-            Assert.AreEqual("120.00€", totalPrice.InnerText);
+            totalPrice.ValidateInnerTextIs("120.00€");
 
             proceedToCheckoutButton.Click();
             App.Browser.WaitForAjax();
             placeOrderButton.ScrollToVisible();
             placeOrderButton.Click();
 
-            Assert.IsTrue(validationMessages.IsVisible);
+            validationMessages.ValidateIsVisible();
+
             var validationMessagesList = App.Components.CreateAllByXpath<Div>("//ul[@class='woocommerce-error']/li").ToList();
+
             Bellatrix.Assertions.Assert.Multiple(
-                () => Assert.AreEqual("Billing First name is a required field.", validationMessagesList[0].InnerText),
-                () => Assert.AreEqual("Billing Last name is a required field.", validationMessagesList[1].InnerText),                 
-                () => Assert.AreEqual("Billing Street address is a required field.", validationMessagesList[2].InnerText), 
-                () => Assert.AreEqual("Billing Town / City is a required field.", validationMessagesList[3].InnerText), 
-                () => Assert.AreEqual("Billing Postcode / ZIP is a required field.", validationMessagesList[4].InnerText), 
-                () => Assert.AreEqual("Billing Phone is a required field.", validationMessagesList[5].InnerText), 
-                () => Assert.AreEqual("Billing Email address is a required field.", validationMessagesList[6].InnerText));                
+                () => validationMessagesList[0].ValidateInnerTextIs("Billing First name is a required field."),
+                () => validationMessagesList[1].ValidateInnerTextIs("Billing Last name is a required field."),
+                () => validationMessagesList[2].ValidateInnerTextIs("Billing Street address is a required field."),
+                () => validationMessagesList[3].ValidateInnerTextIs("Billing Town / City is a required field."),
+                () => validationMessagesList[4].ValidateInnerTextIs("Billing Postcode / ZIP is a required field."),
+                () => validationMessagesList[5].ValidateInnerTextIs("Billing Phone is a required field."),
+                () => validationMessagesList[6].ValidateInnerTextIs("Billing Email address is a required field."));
         }
     }
 }
