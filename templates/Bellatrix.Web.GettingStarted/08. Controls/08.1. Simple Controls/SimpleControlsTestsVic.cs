@@ -47,8 +47,7 @@ namespace Bellatrix.Web.GettingStarted
             var couponCodeTextField = App.Components.CreateByNameEndingWith<TextField>("coupon_code").ToBeVisible();
             var couponCodeApplyButton = App.Components.CreateByNameEndingWith<Button>("apply_coupon").ToBeVisible();
             var updateCart = App.Components.CreateByValueContaining<Button>("Update cart").ToBeClickable();            
-
-            searchTextBox.ToBeClickable();
+                       
             searchTextBox.SetText(rocketName1 + Keys.Enter);
             addToCartButton.Click();
             App.Browser.WaitUntilReady();
