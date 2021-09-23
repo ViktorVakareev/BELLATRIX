@@ -1,0 +1,19 @@
+﻿ AddRocketToCart_Then_NavigateToCheckout_VerifyValidationMessages_VerifyOrderData_BDDLogging
+   Source: BDDLoggingTestsVic.cs line 25
+   Duration: 42.8 sec
+
+  Standard Output: 
+Start Test BDDLoggingTestsVic.AddRocketToCart_Then_NavigateToCheckout_VerifyValidationMessages_VerifyOrderData_BDDLogging
+Start Test BDDLoggingTestsVic.AddRocketToCart_Then_NavigateToCheckout_VerifyValidationMessages_VerifyOrderData_BDDLogging
+Type 'Saturn V' into control (XPath = (//input[@type='search'])[1])
+Validate control (XPath = //*[@class='order-total']//span) inner text is '120.00€'
+Timed out waiting for open connections to be closed. Wait time: 30 sec.
+Scroll to visible control (InnerText containing Place order)
+Validate control (Class = woocommerce-error) is visible
+Validate control (XPath = //ul[@class='woocommerce-error']/li) inner text is 'Billing First name is a required field.'
+Validate control (XPath = //ul[@class='woocommerce-error']/li) inner text is 'Billing Last name is a required field.'
+Validate control (XPath = //ul[@class='woocommerce-error']/li) inner text is 'Billing Street address is a required field.'
+Validate control (XPath = //ul[@class='woocommerce-error']/li) inner text is 'Billing Town / City is a required field.'
+Validate control (XPath = //ul[@class='woocommerce-error']/li) inner text is 'Billing Postcode / ZIP is a required field.'
+Validate control (XPath = //ul[@class='woocommerce-error']/li) inner text is 'Billing Phone is a required field.'
+Validate control (XPath = //ul[@class='woocommerce-error']/li) inner text is 'Billing Email address is a required field.'
