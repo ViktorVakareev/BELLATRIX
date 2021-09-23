@@ -38,13 +38,11 @@ namespace Bellatrix.Web.GettingStarted
             var protonMAnchor = App.Components.CreateByClassContaining<Anchor>("product type-product post-14").ToBeVisible();
             var saturnVAnchor = App.Components.CreateByClassContaining<Anchor>("product type-product post-31").ToBeVisible();
 
-            myAccountButton.Click();
-            App.Browser.Back();
-            cartButton.Click();
-            App.Browser.Back();
-            searchButton.Click();
-                   
+            LayoutAssert.AssertAlignedVerticallyAll(falcon9Anchor, protonMAnchor, protonRocketAnchor, saturnVAnchor);
 
+            LayoutAssert.AssertAlignedHorizontallyAll(searchButton, cartButton, myAccountButton);
+
+            cartButton.AssertLeftOf(searchButton, -1);
         }   
     }
 }
