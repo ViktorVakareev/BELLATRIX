@@ -36,9 +36,28 @@ namespace Bellatrix.Web.GettingStarted
             cartPage.AssertCorrectTotalPrice("174.00€");
             cartPage.ProceedToCheckoutButtton.Click();
 
+            var billingData = new BillingDataVic
+            {
+                FirstName = "John",
+                LastName = "Whick",
+                Company = "Automate The Planet Ltd.",
+                Country = "Colombia",
+                Address1 = "5th Avenue",
+                Address2 = "6th Avenue",
+                City = "New York",
+                State = "New York",
+                Zip = "08751",
+                Phone = "+0035989999999",
+                Email = "john@wick.wbs",
+                ShouldCreateAccount = true,
+                OrderComments = "John's account"
+            };
+
             var checkoutPage = App.GoTo<CheckoutPageVic>();
 
-            checkoutPage.ChoosePaymentMethod("Direct bank transfer");
+            checkoutPage.FillBillingData(billingData);
+            checkoutPage.ChoosePaymentMethod("Check Payments");
+            checkoutPage.PlaceOrderButton.Click();
         }
     }
 }

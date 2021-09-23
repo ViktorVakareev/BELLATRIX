@@ -22,5 +22,26 @@ namespace Bellatrix.Web.GettingStarted
             }
             PaymentMethodButtonByName(paymentMethod).Click();
         }
+
+        public void FillBillingData(BillingDataVic billingData)
+        {
+            OrderComments.SetText(billingData.OrderComments);
+            BillingFirstName.SetText(billingData.FirstName);
+            BillingLastName.SetText(billingData.LastName);
+            BillingCompany.SetText(billingData.Company);
+            BillingCountry.SelectByText(billingData.Country);
+            BillingAddress1.SetText(billingData.Address1);
+            BillingAddress2.SetText(billingData.Address2);
+            BillingCity.SetText(billingData.City);
+            BillingState.SetText(billingData.State);
+            BillingZip.SetText(billingData.Zip);
+            BillingPhone.SetPhone(billingData.Phone);
+            BillingEmail.SetEmail(billingData.Email);
+
+            if (billingData.ShouldCreateAccount)
+            {
+                CreateAccountCheckBox.Check();
+            }
+        }
     }
 }
