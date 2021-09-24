@@ -11,7 +11,7 @@ namespace Bellatrix.Web.GettingStarted
     ////2. Use the BELLATRIX Browser attribute so that you execute all tests in Firefox and restart the browser every time.
     ////3. Navigate to http://demos.bellatrix.solutions for each test but don't navigate in the tests body.
     ////4. Create a test where you add the Proton Rocket to your cart.
-    ////5. Verify that the correct cookie is created. 
+    ////5. Verify that the correct cookie is created.
     ////6. Delete all cookies
     ////7. Verify that the cart is empty.
 
@@ -38,21 +38,20 @@ namespace Bellatrix.Web.GettingStarted
         [Test]
         public void AddProtonRocketToCartThen_DeleteAllCookies_ThenVerifyCartIsEmpty()
         {
-            //string rocketName = "Proton Rocket";
             var protonRocketAddToCartButton = App.Components.CreateAllByInnerTextContaining<Anchor>("Add to cart")[1];
             var itemsInCartCount = App.Components.CreateByClass<Span>("count");
 
             protonRocketAddToCartButton.Click();
 
             var allCookies = App.Cookies.GetAllCookies();
-            var currentRocketAddedCookie = App.Cookies.GetCookie("woocommerce_items_in_cart");            
+            var currentRocketAddedCookie = App.Cookies.GetCookie("woocommerce_items_in_cart");
 
-            Assert.IsTrue(allCookies.Count > 0);           
+            Assert.IsTrue(allCookies.Count > 0);
 
             App.Cookies.DeleteAllCookies();
-            App.Browser.Refresh();            
+            App.Browser.Refresh();
 
-            Assert.AreEqual("0 items", itemsInCartCount.InnerText);            
+            Assert.AreEqual("0 items", itemsInCartCount.InnerText);
         }
 
         [Test]
