@@ -6,7 +6,7 @@ namespace Bellatrix.Web.GettingStarted
     public class LoggingTests : NUnit.WebTest
     {
         [Test]
-        [Category(Categories.CI)]
+        ////[Category(Categories.CI)]
         public void AddCustomMessagesToLog()
         {
             App.Navigation.Navigate("http://demos.bellatrix.solutions/");
@@ -41,6 +41,6 @@ namespace Bellatrix.Web.GettingStarted
     }
 }
 /////1. Open the tests that you made in the page objects section
-//2.Add some debug logging information
-//3. Customize the logs to include the current date and time
-//4. Execute your tests
+////2.Add some debug logging information
+////3. Customize the logs to include the current date and time
+////4. Execute your tests

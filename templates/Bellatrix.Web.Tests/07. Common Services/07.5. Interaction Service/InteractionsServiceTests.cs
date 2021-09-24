@@ -11,8 +11,6 @@ namespace Bellatrix.Web.GettingStarted
         // BELLATRIX interaction APIs are simplified and made to be user-friendly as possible.
         // Their usage can eliminate lots of code duplication and boilerplate code.
         [Test]
-        [Category(Categories.CI)]
-        //[Ignore("Currently not working in the latest version of WebDriver")]
         public void DragAndDrop()
         {
             App.Navigation.Navigate("http://demos.bellatrix.solutions/");
@@ -27,7 +25,6 @@ namespace Bellatrix.Web.GettingStarted
         }
 
         [Test]
-        [Category(Categories.CI)]
         public void KeyUp()
         {
             App.Navigation.Navigate("http://demos.bellatrix.solutions/");

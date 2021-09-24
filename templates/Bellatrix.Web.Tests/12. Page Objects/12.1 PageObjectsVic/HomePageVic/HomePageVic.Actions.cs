@@ -29,14 +29,13 @@ namespace Bellatrix.Web.GettingStarted
                 case "PriceDescending":
                     SortDropDown.SelectByText("Sort by popularity");
                     break;
-
-            }            
+            }
         }
 
-        public void AddProductByName(string rocketName) 
+        public void AddProductByName(string rocketName)
         {
             RocketByName(rocketName).Click();
-            AddToCartButton.Click();            
+            AddToCartButton.Click();
         }
 
         public void ClickViewCartButton()

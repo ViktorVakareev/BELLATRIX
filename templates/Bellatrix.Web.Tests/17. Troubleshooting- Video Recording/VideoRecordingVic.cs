@@ -17,7 +17,7 @@ namespace Bellatrix.Web.GettingStarted._17._Troubleshooting__Video_Recording
         {
             App.Navigation.Navigate("http://demos.bellatrix.solutions/");
 
-            Select sortDropDown = App.Components.CreateByNameEndingWith<Select>("orderby"); 
+            Select sortDropDown = App.Components.CreateByNameEndingWith<Select>("orderby");
             Anchor protonRocketAnchor = App.Components.CreateByAttributesContaining<Anchor>("href", "/proton-rocket/");
             Anchor saturnVAnchor = App.Components.CreateByAttributesContaining<Anchor>("href", "/saturn-v/");
 

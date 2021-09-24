@@ -12,7 +12,7 @@ namespace Bellatrix.Web.GettingStarted
     ////2. Use the BELLATRIX Browser attribute so that you execute all tests in Firefox and restart the browser every time.
     ////3. Navigate to http://demos.bellatrix.solutions/welcome/ for each test but don't navigate in the tests body.
     ////4. Create a test where you click on the Saturn V Sale! Button. Before clicking the button wait for the Huge Rockets link to be visible.
-    
+
     [TestFixture]
     [Browser(BrowserType.Firefox, Lifecycle.RestartEveryTime)]
     public class WaitForElementsVic : NUnit.WebTest

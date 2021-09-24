@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bellatrix.Web.GettingStarted._15._Troubleshooting__Full_Page_Screenshots_on_Fail
 {
-    [Browser(BrowserType.Chrome, DesktopWindowSize._1280_1024, Lifecycle.RestartEveryTime)]   
+    [Browser(BrowserType.Chrome, DesktopWindowSize._1280_1024, Lifecycle.RestartEveryTime)]
     [TestFixture]
     public class FullPageScreenshotsOnFailTestsVic : NUnit.WebTest
     {

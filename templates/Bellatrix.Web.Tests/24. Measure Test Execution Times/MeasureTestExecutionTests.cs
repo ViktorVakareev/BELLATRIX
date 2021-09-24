@@ -15,7 +15,7 @@ namespace Bellatrix.Web.GettingStarted
     public class MeasureTestExecutionTests : NUnit.WebTest
     {
         [Test]
-        [Category(Categories.CI)]
+        ////[Category(Categories.CI)]
         public void PromotionsPageOpened_When_PromotionsButtonClicked()
         {
             App.Navigation.Navigate("http://demos.bellatrix.solutions/");

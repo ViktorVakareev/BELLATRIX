@@ -78,35 +78,35 @@ namespace Bellatrix.Web.GettingStarted
         }
 
         [Test]
-        [Category(Categories.CI)]
+        ////[Category(Categories.CI)]
         public void SortDropDownIsAboveOfProtonRocketAnchor()
         {
             _sortDropDown.AssertAboveOf(_protonRocketAnchor);
         }
 
         [Test]
-        [Category(Categories.CI)]
+        ////[Category(Categories.CI)]
         public void SortDropDownIsAboveOfProtonRocketAnchor_41px()
         {
             _sortDropDown.AssertAboveOf(_protonRocketAnchor, 41);
         }
 
         [Test]
-        [Category(Categories.CI)]
+        ////[Category(Categories.CI)]
         public void SortDropDownIsAboveOfProtonRocketAnchor_GreaterThan40px()
         {
             _sortDropDown.AssertAboveOfGreaterThan(_protonRocketAnchor, 40);
         }
 
         [Test]
-        [Category(Categories.CI)]
+        ////[Category(Categories.CI)]
         public void SortDropDownIsAboveOfProtonRocketAnchor_GreaterThanOrEqual41px()
         {
             _sortDropDown.AssertAboveOfGreaterThanOrEqual(_protonRocketAnchor, 41);
         }
 
         [Test]
-        [Category(Categories.CI)]
+        ////[Category(Categories.CI)]
         public void SortDropDownIsNearTopOfProtonRocketAnchor_GreaterThan40px()
         {
             _sortDropDown.AssertNearTopOfGreaterThan(_protonRocketAnchor, 40);

@@ -13,7 +13,7 @@ namespace Bellatrix.Web.GettingStarted
     ////3. Navigate to http://demos.bellatrix.solutions for each test but don't navigate in the tests body.
     ////4. Create a test where you click on the Promotions menu item.Click on the 'Do you want 5% off for your BD?'. Verify that the correct is displayed in the box and close the alert.
 
-[TestFixture]
+    [TestFixture]
     [Browser(BrowserType.Firefox, Lifecycle.RestartEveryTime)]
     public class DialogServiceTestsVic : NUnit.WebTest
     {

@@ -20,6 +20,7 @@ namespace Bellatrix.Web.GettingStarted
             {
                 paymentMethod = "bacs";
             }
+
             PaymentMethodButtonByName(paymentMethod).Click();
         }
 

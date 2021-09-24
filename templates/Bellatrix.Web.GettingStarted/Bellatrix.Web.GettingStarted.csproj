@@ -24,10 +24,7 @@
 	<ItemGroup>
 		<None Update="allureConfig.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-		<None Update="StyleCopeRules.ruleset">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
+		</None>		
 		<None Update="devPortalGraph1.PNG">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>

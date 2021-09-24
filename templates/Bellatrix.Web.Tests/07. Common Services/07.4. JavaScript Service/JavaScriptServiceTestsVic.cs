@@ -16,11 +16,11 @@ namespace Bellatrix.Web
     ////6. Use a JavaScript code to scroll down till the footer is visible.
 
     [TestFixture]
-        [Browser(BrowserType.Firefox, Lifecycle.RestartEveryTime)]
-        public class JavaScriptServiceTestsVic : WebTest
+    [Browser(BrowserType.Firefox, Lifecycle.RestartEveryTime)]
+    public class JavaScriptServiceTestsVic : WebTest
     {
         public override void TestInit() => App.Navigation.Navigate("https://demos.bellatrix.solutions");
-        
+
         [Test]
         public void AddRocketToCart_Then_ScrollDownToFooterElementUntilItBecomesVisible()
         {
@@ -32,18 +32,17 @@ namespace Bellatrix.Web
 
             protonRocketAddToCartButton.Click();
             viewCartButton.Click();
-            // js to scroll down to footer element
-            //App.JavaScript.Execute("document.getElementsByClass('site-info')[0].scrollIntoView();");
-            //App.JavaScript.Execute("document.querySelector('.site-info').scrollIntoView();");
-            App.JavaScript.Execute("arguments[0].scrollIntoView();", footerElements);
-            //App.JavaScript.Execute("window.scrollTo(0,document.body.scrollHeight);");
+            //// js to scroll down to footer element
+            ////App.JavaScript.Execute("document.getElementsByClass('site-info')[0].scrollIntoView();");
+            ////App.JavaScript.Execute("document.querySelector('.site-info').scrollIntoView();");
+            ////App.JavaScript.Execute("arguments[0].scrollIntoView();", footerElements);
+            ////App.JavaScript.Execute("window.scrollTo(0,document.body.scrollHeight);");
 
             Assert.AreEqual(rocketName, lastAddedToCartProduct.InnerText);
             Assert.AreEqual("© Bellatrix Demos 2021Built with Storefront & WooCommerce", footerElements.InnerText);
         }
 
         [Test]
-        [Category(Categories.CI)]
         public void FillUpAllFields()
         {
             App.Navigation.Navigate("http://demos.bellatrix.solutions/my-account/");
@@ -70,6 +69,6 @@ namespace Bellatrix.Web
             string fontSize = App.JavaScript.Execute("return arguments[0].style.font-size", resultsCount.WrappedElement.Text);
 
             Assert.AreEqual("14px", fontSize);
-        }      
+        }
     }
 }

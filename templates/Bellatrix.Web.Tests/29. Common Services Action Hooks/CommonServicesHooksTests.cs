@@ -24,7 +24,6 @@ namespace Bellatrix.Web.GettingStarted
         //
         // To add custom logic to the element's methods you can create a class that derives from ElementEventHandlers. The override the methods you like.
         [Test]
-        [Category(Categories.CI)]
         public void PurchaseRocketWithGloballyOverridenMethods()
         {
             App.Navigation.Navigate("http://demos.bellatrix.solutions/");

@@ -5,16 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//// 1. Create a new MSTest test class
+////2.Use the BELLATRIX Browser attribute so that you execute all tests in Firefox and restart the browser every time.
+////3. Create a test where you add the Proton Rocket to your cart.
+////4. Navigate to http://demos.bellatrix.solutions/
+////5.Locate Rocket anchor and open it via double click
+////6. Navigate to next page through click and hold
+////7. Perform all operations in single chain
 
-/// <summary>
-// 1. Create a new MSTest test class
-//2.Use the BELLATRIX Browser attribute so that you execute all tests in Firefox and restart the browser every time.
-//3. Create a test where you add the Proton Rocket to your cart. 
-//4. Navigate to http://demos.bellatrix.solutions/
-//5.Locate Rocket anchor and open it via double click
-//6. Navigate to next page through click and hold
-//7. Perform all operations in single chain
-/// </summary>
 namespace Bellatrix.Web.GettingStarted
 {
     [TestFixture]
@@ -37,9 +35,9 @@ namespace Bellatrix.Web.GettingStarted
             App.Browser.WaitUntilReady();
             App.Interactions.MoveToElement(viewCartLink).Click().Perform();
 
-            //App.Interactions.MoveToElement(protonRocketAnchor).DoubleClick()
-            //.MoveToElement(protonRocketAddToCartButton).DoubleClick()
-            //.MoveToElement(viewCartLink).Click().Perform();
+            ////App.Interactions.MoveToElement(protonRocketAnchor).DoubleClick()
+            ////.MoveToElement(protonRocketAddToCartButton).DoubleClick()
+            ////.MoveToElement(viewCartLink).Click().Perform();
 
             App.Navigation.WaitForPartialUrl("/cart/");
 

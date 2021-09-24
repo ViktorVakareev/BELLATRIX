@@ -22,7 +22,7 @@ namespace Bellatrix.Web.GettingStarted
     public class SeleniumGridTests : NUnit.WebTest
     {
         [Test]
-        //[Ignore("no need to run")]
+        ////[Ignore("no need to run")]
         public void PromotionsPageOpened_When_PromotionsButtonClicked()
         {
             App.Navigation.Navigate("http://demos.bellatrix.solutions/");

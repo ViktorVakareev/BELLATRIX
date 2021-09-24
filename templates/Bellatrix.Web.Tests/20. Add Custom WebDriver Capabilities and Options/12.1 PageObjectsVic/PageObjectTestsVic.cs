@@ -1,5 +1,4 @@
-﻿
-using Bellatrix.Web.GettingStarted._12._1_PageObjectsVic.CartPageVic;
+﻿using Bellatrix.Web.GettingStarted._12._1_PageObjectsVic.CartPageVic;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -10,22 +9,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-/// <summary>
-//0. Purchase random Rocket using Page Object Model 
-//1. Open the tests that you made in the page objects section
-//2. Use the Browser attribute to control the driver creation
-//3. Use Firefox for browser
-//4. Add custom FirefoxOptions and set the logging level to verbose
-/// </summary>
+////0. Purchase random Rocket using Page Object Model
+////1. Open the tests that you made in the page objects section
+////2. Use the Browser attribute to control the driver creation
+////3. Use Firefox for browser
+////4. Add custom FirefoxOptions and set the logging level to verbose
+
 namespace Bellatrix.Web.GettingStarted._20._Add_Custom_WebDriver_Capabilities_and_Options
 {
-    //[TestFixture]
-    //[SauceLabs(BrowserType.Firefox,
-    //    "50",
-    //    "Windows",
-    //    Lifecycle.ReuseIfStarted,
-    //    recordScreenshots: true,    
-    //    recordVideo: true)]
     [TestFixture]
     [Browser(BrowserType.Firefox, Lifecycle.RestartEveryTime)]
     public class PageObjectTestsVic : NUnit.WebTest

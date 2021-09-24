@@ -21,8 +21,8 @@ namespace Bellatrix.Web.GettingStarted._12._1_PageObjectsVic.CartPageVic
         public Button UpdateCartButtton => App.Components.CreateByNameEndingWith<Button>("update_cart").ToBeClickable();
 
         public TextField QuantityTextBox(string rocketName)
-        { 
+        {
         return App.Components.CreateByXpath<TextField>($"//a[text()='{rocketName}']/following::input[1]");
-        } 
+        }
     }
 }

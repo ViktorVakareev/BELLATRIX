@@ -9,7 +9,6 @@ namespace Bellatrix.Web.GettingStarted
         // 1. BELLATRIX gives you an interface for easier execution of JavaScript code using the JavaScriptService.
         // You need to make sure that you have navigated to the desired web page.
         [Test]
-        [Category(Categories.CI)]
         public void FillUpAllFields()
         {
             App.Navigation.Navigate("http://demos.bellatrix.solutions/my-account/");

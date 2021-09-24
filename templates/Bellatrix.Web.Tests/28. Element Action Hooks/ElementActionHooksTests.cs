@@ -38,7 +38,7 @@ namespace Bellatrix.Web.GettingStarted
         }
 
         [Test]
-        [Category(Categories.CI)]
+        ////[Category(Categories.CI)]
         public void PurchaseRocketWithGloballyOverridenMethods()
         {
             App.Navigation.Navigate("http://demos.bellatrix.solutions/");

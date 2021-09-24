@@ -40,7 +40,5 @@ namespace Bellatrix.Web.GettingStarted
         {
             return App.Components.CreateByXpath<RadioButton>($"//label[@for='payment_method_{paymentMethod}']").ToBeVisible();
         }
-
     }
 }
-

@@ -40,7 +40,5 @@ namespace Bellatrix.Web.GettingStarted._20._Add_Custom_WebDriver_Capabilities_an
         {
             return App.Components.CreateByXpath<RadioButton>($"//label[@for='payment_method_{paymentMethod}']").ToBeVisible();
         }
-
     }
 }
-

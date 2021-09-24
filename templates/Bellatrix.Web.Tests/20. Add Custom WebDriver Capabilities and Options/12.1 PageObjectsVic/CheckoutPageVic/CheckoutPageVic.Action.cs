@@ -20,6 +20,7 @@ namespace Bellatrix.Web.GettingStarted._20._Add_Custom_WebDriver_Capabilities_an
             {
                 paymentMethod = "bacs";
             }
+
             PaymentMethodButtonByName(paymentMethod).Click();
         }
 

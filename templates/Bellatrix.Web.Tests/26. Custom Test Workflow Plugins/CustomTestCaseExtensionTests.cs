@@ -22,7 +22,7 @@ namespace Bellatrix.Web.GettingStarted
         }
 
         [Test]
-        [Category(Categories.CI)]
+        ////[Category(Categories.CI)]
         [ManualTestCase(1532)]
         public void PurchaseRocketWithGloballyOverridenMethods()
         {

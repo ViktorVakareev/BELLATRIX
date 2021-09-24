@@ -21,8 +21,8 @@ namespace Bellatrix.Web.GettingStarted._20._Add_Custom_WebDriver_Capabilities_an
         public Button UpdateCartButtton => App.Components.CreateByNameEndingWith<Button>("update_cart").ToBeClickable();
 
         public TextField QuantityTextBox(string rocketName)
-        { 
+        {
         return App.Components.CreateByXpath<TextField>($"//a[text()='{rocketName}']/following::input[1]");
-        } 
+        }
     }
 }
