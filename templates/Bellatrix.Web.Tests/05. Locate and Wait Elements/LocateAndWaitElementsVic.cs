@@ -40,7 +40,7 @@ namespace Bellatrix.Web.GettingStarted
                 addToCartAllButtons[i].ToBeVisible();
             }
 
-            Assert.AreEqual(13, addToCartAllButtons.Count);
+            Assert.AreEqual(14, addToCartAllButtons.Count);
         }
     }
 }

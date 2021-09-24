@@ -37,7 +37,7 @@ namespace Bellatrix.Web
         {
             var addToCartAllButtons = App.Components.CreateAllByXpath<Button>("//a[(contains(text(),'Add to cart'))]").ToList();
 
-            Assert.AreEqual(13, addToCartAllButtons.Count);
+            Assert.AreEqual(14, addToCartAllButtons.Count);
         }
 
         [Test]
