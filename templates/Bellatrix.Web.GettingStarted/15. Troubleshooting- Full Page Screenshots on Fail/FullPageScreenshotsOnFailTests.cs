@@ -20,6 +20,7 @@ namespace Bellatrix.Web.GettingStarted
             App.Navigation.Navigate("http://demos.bellatrix.solutions/");
             var promotionsLink = App.Components.CreateByLinkText<Anchor>("Promotions");
             promotionsLink.Click();
+            App.Browser.WaitForAjax();
         }
     }
 }

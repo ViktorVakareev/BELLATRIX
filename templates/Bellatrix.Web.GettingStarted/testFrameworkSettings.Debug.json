@@ -10,7 +10,7 @@
     "waitUntilReadyOnElementFound": "false",
     "waitForAngular": "false",
     "shouldHighlightElements": "true",
-    "shouldCaptureHttpTraffic": "false",
+    "shouldCaptureHttpTraffic": "true",
     "pathToSslCertificate": "path",
     "timeoutSettings": {
       "elementWaitTimeout": "30",
@@ -125,11 +125,11 @@
   "videoRecordingSettings": {
     "isEnabled": "false",
     "waitAfterFinishRecordingMilliseconds": "500",
-    "filePath": "ApplicationData\\Troubleshooting\\Videos"
+    "filePath": "D:\\Repos\\Troubleshooting\\Videos"
   },
   "screenshotsSettings": {
     "isEnabled": "true",
-    "filePath": "ApplicationData\\Troubleshooting\\Screenshots"
+    "filePath": "D:\\Repos\\Troubleshooting\\Screenshots"
   },
   "imageRecognitionSettings": {
     "timeoutInSeconds": "5",

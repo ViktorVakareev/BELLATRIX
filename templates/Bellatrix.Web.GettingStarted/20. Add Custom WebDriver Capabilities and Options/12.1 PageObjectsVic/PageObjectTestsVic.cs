@@ -2,6 +2,7 @@
 using Bellatrix.Web.GettingStarted._12._1_PageObjectsVic.CartPageVic;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +11,47 @@ using System.Threading;
 using System.Threading.Tasks;
 
 /// <summary>
-//1. Purchase random Rocket using Page Object Model 
-//2.Turn on the HTTP capturing
-//3. Add proxy service assertions
-//4. Redirect some of the requests made
+//0. Purchase random Rocket using Page Object Model 
+//1. Open the tests that you made in the page objects section
+//2. Use the Browser attribute to control the driver creation
+//3. Use Firefox for browser
+//4. Add custom FirefoxOptions and set the logging level to verbose
 /// </summary>
-namespace Bellatrix.Web.GettingStarted
+namespace Bellatrix.Web.GettingStarted._20._Add_Custom_WebDriver_Capabilities_and_Options
 {
+    //[TestFixture]
+    //[SauceLabs(BrowserType.Firefox,
+    //    "50",
+    //    "Windows",
+    //    Lifecycle.ReuseIfStarted,
+    //    recordScreenshots: true,    
+    //    recordVideo: true)]
     [TestFixture]
-    [Browser(BrowserType.Chrome, Lifecycle.RestartEveryTime)]//, shouldCaptureHttpTraffic: true)]
+    [Browser(BrowserType.Firefox, Lifecycle.RestartEveryTime)]
     public class PageObjectTestsVic : NUnit.WebTest
     {
+        public override void TestsArrange()
+        {
+            var firefoxOptions = new FirefoxOptions
+            {
+                AcceptInsecureCertificates = true,
+                UnhandledPromptBehavior = UnhandledPromptBehavior.Accept,
+                PageLoadStrategy = PageLoadStrategy.Eager,
+            };
+
+            // 2. Add custom WebDriver options.
+            App.AddWebDriverOptions(firefoxOptions);
+
+            // 3. Add custom WebDriver capability.
+            App.AddAdditionalCapability("disable-popup-blocking", true);
+
+            // 4. Add an existing Firefox profile. You may want to test your application in together with some specific browser extension.
+            var profileManager = new FirefoxProfileManager();
+            FirefoxProfile profile = profileManager.GetProfile("Bellatrix");
+
+            App.AddWebDriverBrowserProfile(profile);
+        }
+
         [Test]
         public void PurchaseRocketUsingPageObjectsModel()
         {
